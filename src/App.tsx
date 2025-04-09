@@ -1,14 +1,18 @@
-import { ElevenLabsChat } from './components/ElevenLabsChat';
+import React from 'react';
+import { CustomChat } from './components/CustomChat';
+import { StarField } from './components/StarField';
+import './App.css';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="app">
-      <h1>KappaTron AI</h1>
-      <div className="chat-container">
-        <ElevenLabsChat />
+      <StarField />
+      <div className="content">
+        <h1>KappaTron</h1>
+        <CustomChat />
       </div>
     </div>
   );
-}
+};
 
 export default App;
