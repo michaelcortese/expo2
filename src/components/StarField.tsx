@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import { useEffect, useRef } from 'react';
 
 interface Star {
   x: number;
@@ -8,10 +8,10 @@ interface Star {
   brightness: number;
 }
 
-export const StarField: React.FC = () => {
+export function StarField() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const starsRef = useRef<Star[]>([]);
-  const animationFrameRef = useRef<number>();
+  const animationFrameRef = useRef<number | null>(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -71,11 +71,12 @@ export const StarField: React.FC = () => {
     starsRef.current = createStars();
     drawStars();
 
-    // Add resize listener
-    window.addEventListener('resize', resizeCanvas);
+    // Add resize listener with proper event handling
+    const handleResize = (_event: UIEvent): void => resizeCanvas();
+    window.addEventListener('resize', handleResize);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener('resize', handleResize);
       if (animationFrameRef.current) {
         cancelAnimationFrame(animationFrameRef.current);
       }
@@ -96,4 +97,4 @@ export const StarField: React.FC = () => {
       }}
     />
   );
-}; 
+} 
