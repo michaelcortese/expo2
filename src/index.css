@@ -114,6 +114,15 @@ h1 {
   color: #ff4444;
   font-size: 0.9rem;
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.reconnect-message {
+  color: var(--accent-color);
+  font-size: 0.8rem;
+  animation: pulse 1.5s infinite;
 }
 
 .controls {
