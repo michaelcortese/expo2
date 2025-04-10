@@ -31,6 +31,32 @@ export const CustomChat: React.FC = () => {
     }
   });
 
+  // Handle keyboard events
+  useEffect(() => {
+    const handleKeyPress = (event: KeyboardEvent) => {
+      // Only respond to 'b' key press
+      if (event.key.toLowerCase() === 'b') {
+        // Prevent default behavior (like scrolling)
+        event.preventDefault();
+        
+        // Toggle voice chat
+        if (isActive) {
+          stopVoiceChat();
+        } else {
+          startVoiceChat();
+        }
+      }
+    };
+
+    // Add event listener
+    window.addEventListener('keydown', handleKeyPress);
+
+    // Clean up
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [isActive]); // Re-run when isActive changes
+
   // Clean up resources when component unmounts
   useEffect(() => {
     return () => {
@@ -153,14 +179,14 @@ export const CustomChat: React.FC = () => {
             className="start-button"
             disabled={conversation.status === 'connecting'}
           >
-            Start Voice Chat
+            Start Chat
           </button>
         ) : (
           <button 
             onClick={stopVoiceChat}
             className="stop-button"
           >
-            End Voice Chat
+            Stop Chat
           </button>
         )}
       </div>

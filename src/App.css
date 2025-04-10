@@ -1,8 +1,9 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  margin: 0;
+  padding: 0;
   text-align: center;
+  overflow: hidden;
 }
 
 .logo {
@@ -39,4 +40,158 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.content {
+  padding: 2rem;
+  text-align: center;
+  z-index: 1;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+/* Page Styles */
+.page-container {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.page {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.page.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.page-content {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  margin: 0 auto;
+}
+
+.page-image {
+  width: 383px;
+  height: 131px;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.page-image.square {
+  width: 200px;
+  height: 200px;
+}
+
+.page-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.page-image:hover img {
+  transform: scale(1.05);
+}
+
+.page-indicators {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 1rem;
+  z-index: 2;
+}
+
+.indicator {
+  padding: 0.5rem 1rem;
+  border: 2px solid var(--accent-color);
+  background: transparent;
+  color: var(--accent-color);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.indicator.active {
+  background: var(--accent-color);
+  color: #000;
+}
+
+.indicator:hover {
+  background: var(--accent-color);
+  color: #000;
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #fff;
+  text-align: center;
+  width: 100%;
+}
+
+p {
+  font-size: 1.1rem;
+  margin: 0;
+  color: #fff;
+  max-width: 600px;
+  text-align: center;
+  width: 100%;
+}
+
+p.long-text {
+  white-space: pre-line;
+  text-align: center;
+  line-height: 1.3;
+  font-size: 0.9rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* Footer Text */
+.footer-text {
+  position: fixed;
+  bottom: 1rem;
+  left: 0;
+  right: 0;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 0.8rem;
+  text-align: center;
+  z-index: 10;
+  padding: 0.5rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2px);
 }
