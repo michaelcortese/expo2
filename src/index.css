@@ -18,7 +18,8 @@ body {
   background-color: var(--background-color);
   color: var(--text-color);
   min-height: 100vh;
-  overflow-x: hidden;
+  overflow: hidden;
+  height: 100vh;
 }
 
 .app {

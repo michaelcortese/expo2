@@ -87,25 +87,9 @@ Here at KHK, we build life-long relationships. Through tradition and legacy, we'
             </div>
           </div>
         ))}
-        <div className="page-indicators">
-          {pages.map((_, index) => (
-            <button 
-              key={index}
-              className={`indicator ${currentPage === index ? 'active' : ''}`}
-              onClick={() => {
-                if (!isTransitioning) {
-                  setIsTransitioning(true);
-                  setCurrentPage(index);
-                }
-              }}
-            >
-              Page {index + 1}
-            </button>
-          ))}
-        </div>
       </div>
       <div className="footer-text">
-        Made by the Kappa Eta Kappa engineering fraternity at UW-Madison for the 2025 Engineering Expo
+        Made by the brothers of the Kappa Eta Kappa engineering fraternity at UW-Madison for the 2025 Engineering Expo
       </div>
     </div>
   );
